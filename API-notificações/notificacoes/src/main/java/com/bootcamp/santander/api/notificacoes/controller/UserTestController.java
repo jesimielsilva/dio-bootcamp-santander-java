@@ -1,4 +1,7 @@
 package com.bootcamp.santander.api.notificacoes.controller;
-public class ControllerStatusTeste {
+
+public class UserTestController {
 
 }
+
+
