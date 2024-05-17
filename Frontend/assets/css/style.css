@@ -1,3 +1,99 @@
 .bg-red {
     background-color: #831D1D;
 }
+
+/* FORMULÁRIOS */
+.grupo-pessoais{
+    margin-top: 90px;
+}
+
+.grupo-complementares{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+@media(max-width: 570px){
+    .grupo-complementares, .grupo-pessoais{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+.header-input{
+    background-color:#B81414;
+    padding: 30px 0 5px 40px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px 10px 0px 0px;
+
+}
+
+.conteudo-input{
+    background-color: #E0DDDD;
+    padding: 20px 40px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.underline{
+    display: inline-block;
+    border-bottom: 5px solid #831D1D; 
+    padding-bottom: 3px; 
+}
+
+.titulo-input{
+    font-weight: bolder;
+    margin: 30px 0 15px;
+    display: inline-block;
+    border-bottom: 1px solid black; 
+    padding-bottom: 1px; 
+}
+
+input[type="text"].form-control, 
+input[type="email"].form-control, 
+input[type="url"].form-control, 
+input[type="date"].form-control,
+select.form-select,
+textarea.form-control {
+    border: 1px solid #B81414;
+    color: #B81414;
+    font-weight: bold;
+    font-size: small;
+    padding: 15px;
+}
+input[type="text"].form-control::placeholder,
+input[type="email"].form-control::placeholder,
+input[type="url"].form-control::placeholder{
+    color: #B81414;
+}
+
+#botao-mais{
+    font-weight: bold;
+    font-size: larger;
+    padding: 0 20px;
+}
+
+.estilo-botao{
+    background-color: #B81414;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.estilo-botao:hover {
+    background-color: #831D1D;
+    cursor: pointer; 
+    color: white;
+}
+
+.botao-adicionar{
+    padding: 10px 50px;
+}
+
+#botao-enviar{
+    padding: 10px 80px;
+    border-color: white;
+    margin-bottom: 80px;
+}
+
+.sombra{
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.200);
+}
