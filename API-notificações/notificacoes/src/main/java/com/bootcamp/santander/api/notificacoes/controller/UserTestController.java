@@ -21,7 +21,7 @@ public class UserTestController {
 
     @PostMapping
     public User createUser(@RequestBody User user) {
-        return userService.createUser();
+        return userService.createUser(user);
     }
 
     @DeleteMapping("/{id}")
