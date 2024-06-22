@@ -1,0 +1,67 @@
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 1s ease-in-out;
+}
+
+.container-form {
+    display: flex;
+    overflow-y: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 112px);
+}
+
+.sombra{
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.200);
+}
+
+.bg-red {
+    background-color: #831D1D;
+}
+
+@media(max-width: 570px){
+
+.container-form {
+    width: 100%;
+    height: calc(100vh - 124px);
+    }
+}
+ 
+.estilo-botao {
+    color: white;
+    background-color: #B81414;
+    transition: background-color 0.3s ease;
+}
+
+.titulo-input{
+    font-weight: bolder;
+    margin-left: 5vw;
+    display: inline-block;
+    padding-bottom: 1px; 
+    border-bottom: 1px solid black; 
+}
+    
+.estilo-botao:hover {
+    background-color: #831D1D;
+    cursor: pointer; 
+    color: white;
+}
+    
+input[type="email"].form-control, 
+input[type="password"].form-control {
+    border: 1px solid #B81414;
+    color: #B81414;
+    font-weight: bold;
+    font-size: small;
+    padding: 12px;
+}
+
+input[type="email"].form-control::placeholder,
+input[type="password"].form-control::placeholder{
+    color: #B81414;
+}
+
+
