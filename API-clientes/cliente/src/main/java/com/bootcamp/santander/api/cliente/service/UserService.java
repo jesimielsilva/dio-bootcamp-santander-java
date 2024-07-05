@@ -21,7 +21,18 @@ public class UserService {
         return this.userRepository.findUserById(idUser);
     }
 
+    public UserModel findUserByCpf(String cpf) {
+        return this.userRepository.findUserByCpf(cpf);
+    }
+
     public UserModel store(@RequestBody UserModel userModel) {
-        return this.userRepository.save(userModel);
+        try {
+            var nameLowerCase = userModel.getName().toLowerCase();
+            userModel.setName(nameLowerCase);
+            return this.userRepository.save(userModel);
+        } catch (Exception err) {
+            System.out.println("Error: " + err);
+            throw err;
+        }
     }
 }
