@@ -25,26 +25,32 @@ public class FilterUserAuth extends OncePerRequestFilter {
             throws ServletException, IOException {
         var servletPath = request.getServletPath();
 
-        if (servletPath.equals("/users/")) {
-            var authorization = request.getHeader("Authorization");
-            var authEncoded = authorization.substring("Basic".length()).trim();
-            byte[] authDecode = Base64.getDecoder().decode(authEncoded);
-            var authString = new String(authDecode);
-            String[] credentials = authString.split(":");
-            String name = credentials[0];
-            String cpf = credentials[1];
+        if (servletPath.equals("/users/") || servletPath.startsWith("/contas/")) {
+            try {
+                var authorization = request.getHeader("Authorization");
+                var authEncoded = authorization.substring("Basic".length()).trim();
+                byte[] authDecode = Base64.getDecoder().decode(authEncoded);
+                var authString = new String(authDecode);
+                String[] credentials = authString.split(":");
+                String name = credentials[0];
+                String cpf = credentials[1];
 
-            System.out.println("Authorization");
-            System.out.println(name);
-            System.out.println(cpf);
+                System.out.println("Authorization");
+                System.out.println(name);
+                System.out.println(cpf);
 
-            var user = this.userService.findUserByCpfAndName(cpf, name);
+                var user = this.userService.findUserByCpfAndName(cpf, name);
 
-            if (user == null) {
-                response.sendError(401);
-            } else {
-                request.setAttribute("idUser", user.getId());
-                filterChain.doFilter(request, response);
+                if (user == null) {
+                    System.out.println("Usuario não encontrado");
+                    response.sendError(401);
+                } else {
+                    request.setAttribute("idUser", user.getId());
+                    filterChain.doFilter(request, response);
+                }
+            } catch (Exception err) {
+                System.out.println("Ocorreu um erro: " + err.getMessage());
+                response.sendError(501);
             }
         } else {
             filterChain.doFilter(request, response);

@@ -35,13 +35,21 @@ public class UserController {
 
     @SuppressWarnings("rawtypes")
     @PostMapping("/cadastrar")
-    public ResponseEntity store(@RequestBody UserModel userModel) {
-        try {
-            UserModel userCreated = userService.store(userModel);
-            return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ocorreu um erro!" + e);
+    public ResponseEntity store(@RequestBody UserModel userModel, HttpServletRequest request) {
+        var cpf = userModel.getCpf();
+        var user = this.userService.findUserByCpf(cpf);
+
+        if (user == null) {
+            try {
+                UserModel userCreated = this.userService.store(userModel);
+                return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
+            } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ocorreu um erro!" + e);
+            }
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("CPF já cadastrado!");
         }
+
     }
 
 }

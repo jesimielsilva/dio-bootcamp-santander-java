@@ -9,4 +9,5 @@ public interface UserRepository extends JpaRepository<UserModel, Integer> {
 
     UserModel findUserById(Integer idUser);
 
+    UserModel findUserByCpf(String cpf);
 }
