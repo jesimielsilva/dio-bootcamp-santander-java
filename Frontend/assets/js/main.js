@@ -1,4 +1,5 @@
 import { initBackgroundChanger } from "./randomBackground.js"
+import { formSubmit } from "./loginFormSubmit.js"
 
 document.addEventListener('DOMContentLoaded', () => {
 	
@@ -6,5 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	if(isLoginPage){
 		initBackgroundChanger()
+		formSubmit()
 	}
 });
