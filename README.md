@@ -43,9 +43,9 @@ graph TD;
 ## API de Candidatura Trabalhe Conosco (Time do Magno)
 
 | Nome             | LinkedIn                              |
-|------------------|---------------------------------------|
-| Magno Pereira    |      |
-|    |     |
+|------------------|----------------------------------------------|
+| Magno Pereira    |      
+| Francisco Alexson| www.linkedin.com/in/alexson-freitas-773a25371|
 |    |    |
 |     |      |
 
